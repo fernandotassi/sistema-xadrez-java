@@ -16,4 +16,10 @@ public class Tabuleiro
 	public Integer getLinhas(){return  linhas;}
 	
 	public Integer getColunas(){return colunas;}
+	
+	public Peca peca(Integer linha, Integer coluna)
+	{return peca[linha][coluna];}
+	
+	public Peca peca(Posicao posicao)
+	{return peca[posicao.getLinha()][posicao.getColuna()];}
 }

@@ -1,11 +1,12 @@
-package application;
+package aplicacao;
 
 import java.util.*;
 
 import tabuleiro.Posicao;
 import tabuleiro.Tabuleiro;
+import xadrez.Partida;
 
-public class Program 
+public class Programa 
 {
 
 	public static void main(String[] args)
@@ -17,11 +18,15 @@ public class Program
 		System.out.println(d);
 		System.out.println();
 		
-		Posicao pos = new Posicao(2, 3);		
-		System.out.println(pos);
+		Partida partida1 = new Partida();
+		UI.mostraTabuleiro(partida1.buscaPecas());
 		
-		Tabuleiro tab = new Tabuleiro(8, 8);
-						
+		
+		
+		
+		
+		
+		
 		scan.close();
 	}
 }
