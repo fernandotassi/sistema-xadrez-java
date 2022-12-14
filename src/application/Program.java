@@ -3,6 +3,7 @@ package application;
 import java.util.*;
 
 import tabuleiro.Posicao;
+import tabuleiro.Tabuleiro;
 
 public class Program 
 {
@@ -16,10 +17,11 @@ public class Program
 		System.out.println(d);
 		System.out.println();
 		
-		Posicao pos = new Posicao(2, 3);
-		
+		Posicao pos = new Posicao(2, 3);		
 		System.out.println(pos);
-				
+		
+		Tabuleiro tab = new Tabuleiro(8, 8);
+						
 		scan.close();
 	}
 }
