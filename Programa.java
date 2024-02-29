@@ -11,10 +11,17 @@ public class Programa
 		Scanner scan = new Scanner(System.in);
 		Date d = new Date();
 		System.out.println(d);
+		
+		int l = 5;
+		int c = 7;
+		
+		Posicao pos = new Posicao(l, c);
+		System.out.println(pos);
 	
 	
 	
 	
 		scan.close();
 	}
+	
 }
