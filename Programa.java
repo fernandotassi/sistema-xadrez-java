@@ -18,7 +18,7 @@ public class Programa
 		Posicao pos = new Posicao(l, c);
 		System.out.println(pos);
 	
-	
+	    Tabuleiro tabuleiro = new Tabuleiro(8, 8);
 	
 	
 		scan.close();
