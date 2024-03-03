@@ -12,14 +12,9 @@ public class Programa
 		Date d = new Date();
 		System.out.println(d);
 		
-		int l = 5;
-		int c = 7;
 		
-		Posicao pos = new Posicao(l, c);
-		System.out.println(pos);
-	
-	    Tabuleiro tabuleiro = new Tabuleiro(8, 8);
-	
+		PartidaXadrez partidaXadrez = new PartidaXadrez();
+		UI.imprimeTabuleiro(partidaXadrez.getPesas());
 	
 		scan.close();
 	}
