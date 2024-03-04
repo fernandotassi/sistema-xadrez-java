@@ -3,7 +3,7 @@ public class PartidaXadrez
 	private Tabuleiro tabuleiro;
 	
 	public PartidaXadrez()
-	{tabuleiro = new Tabuleiro(8, 8);}
+	{tabuleiro = new Tabuleiro(8, 8); pesaInicial();}
 	
 	public PesaXadrez[][] getPesas()
 	{
@@ -16,5 +16,12 @@ public class PartidaXadrez
 			}
 		}
 		return mat;	
+	}
+	
+	public void pesaInicial()
+	{
+		tabuleiro.colocaPesa(new Torre(tabuleiro, Cor.branco), new Posicao(0, 0));
+		tabuleiro.colocaPesa(new Torre(tabuleiro, Cor.branco), new Posicao(0, 7));
+		tabuleiro.colocaPesa(new Rei(tabuleiro, Cor.branco), new Posicao(0, 4));
 	}
 }

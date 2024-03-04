@@ -1,4 +1,4 @@
 public enum Cor
 {
-	black, white;
+	preto, branco;
 }

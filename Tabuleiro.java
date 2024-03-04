@@ -15,4 +15,9 @@ public class Tabuleiro
 	
 	public Pesa pesa(int linha, int coluna){return pesas[linha][coluna];}
 	public Pesa pesa(Posicao posicao){return pesas[posicao.getLinha()][posicao.getColuna()];}
+	public void colocaPesa(Pesa pesa, Posicao posicao)
+	{
+		pesas[posicao.getLinha()][posicao.getColuna()] = pesa;
+		pesa.posicao = posicao;
+	}
 }

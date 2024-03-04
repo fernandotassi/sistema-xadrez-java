@@ -18,7 +18,7 @@ public class UI
 		if(pesa == null)
 		{System.out.print("-");}
 		else
-		{System.out.println(pesa);}
+		{System.out.print(pesa);}
 		System.out.print(" ");
 	 }
 }
