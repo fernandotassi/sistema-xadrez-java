@@ -22,6 +22,6 @@ public class PartidaXadrez
 	{
 		tabuleiro.colocaPesa(new Torre(tabuleiro, Cor.branco), new Posicao(0, 0));
 		tabuleiro.colocaPesa(new Torre(tabuleiro, Cor.branco), new Posicao(0, 7));
-		tabuleiro.colocaPesa(new Rei(tabuleiro, Cor.branco), new Posicao(0, 4));
+		tabuleiro.colocaPesa(new Rei(tabuleiro, Cor.branco), new Posicao(0, 0));
 	}
 }
