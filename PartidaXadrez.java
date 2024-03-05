@@ -23,8 +23,16 @@ public class PartidaXadrez
 	
 	public void pesaInicial()
 	{
-		colocaNovaPesa(8, 'a', new Torre(tabuleiro, Cor.branco));
-		colocaNovaPesa(8, 'h', new Torre(tabuleiro, Cor.branco));
-	    colocaNovaPesa(8, 'e', new Rei(tabuleiro, Cor.branco));
+		colocaNovaPesa(2, 'c', new Torre(tabuleiro, Cor.branco));
+		colocaNovaPesa(2, 'd', new Torre(tabuleiro, Cor.branco));
+	    colocaNovaPesa(2, 'e', new Torre(tabuleiro, Cor.branco));
+	    colocaNovaPesa(1, 'e', new Torre(tabuleiro, Cor.branco));
+	    colocaNovaPesa(1, 'd', new Rei(tabuleiro, Cor.branco));
+	    
+	    colocaNovaPesa(7, 'c', new Torre(tabuleiro, Cor.preto));
+		colocaNovaPesa(7, 'd', new Torre(tabuleiro, Cor.preto));
+	    colocaNovaPesa(7, 'e', new Torre(tabuleiro, Cor.preto));
+	    colocaNovaPesa(8, 'e', new Torre(tabuleiro, Cor.preto));
+	    colocaNovaPesa(8, 'd', new Rei(tabuleiro, Cor.preto));
 	}
 }
