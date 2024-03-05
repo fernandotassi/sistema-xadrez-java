@@ -18,10 +18,13 @@ public class PartidaXadrez
 		return mat;	
 	}
 	
+	private void colocaNovaPesa(int linha, char coluna, PesaXadrez pesa)
+	{tabuleiro.colocaPesa(pesa, new PosicaoXadrez(linha, coluna).paraPosicao());}
+	
 	public void pesaInicial()
 	{
-		tabuleiro.colocaPesa(new Torre(tabuleiro, Cor.branco), new Posicao(0, 0));
-		tabuleiro.colocaPesa(new Torre(tabuleiro, Cor.branco), new Posicao(0, 7));
-		tabuleiro.colocaPesa(new Rei(tabuleiro, Cor.branco), new Posicao(0, 0));
+		colocaNovaPesa(8, 'a', new Torre(tabuleiro, Cor.branco));
+		colocaNovaPesa(8, 'h', new Torre(tabuleiro, Cor.branco));
+	    colocaNovaPesa(8, 'e', new Rei(tabuleiro, Cor.branco));
 	}
 }
