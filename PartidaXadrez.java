@@ -18,6 +18,29 @@ public class PartidaXadrez
 		return mat;	
 	}
 	
+	public PesaXadrez executarMovimentoXadrez(PosicaoXadrez posicaoOrigem, PosicaoXadrez posicaoDestino)
+	{
+		Posicao origem = posicaoOrigem.paraPosicao();
+		Posicao destino = posicaoDestino.paraPosicao();
+		validaPosicaoOrigem(origem);
+		Pesa pegaPesa = fazMovimento(origem, destino);
+		return (PesaXadrez)pegaPesa;
+	}
+	
+	private Pesa fazMovimento(Posicao origem, Posicao destino)
+	{
+		Pesa p = tabuleiro.removePesa(origem);
+		Pesa pesaCapturada = tabuleiro.removePesa(destino);
+		tabuleiro.colocaPesa(p, destino);
+		return pesaCapturada;
+	}
+	
+	private void validaPosicaoOrigem(Posicao posicao)
+	{
+		if(!tabuleiro.temUmaPesa(posicao))
+		{throw new ExcecaoXadrez("erro, não existe peça na origem!");}
+	}
+	
 	private void colocaNovaPesa(int linha, char coluna, PesaXadrez pesa)
 	{tabuleiro.colocaPesa(pesa, new PosicaoXadrez(linha, coluna).paraPosicao());}
 	

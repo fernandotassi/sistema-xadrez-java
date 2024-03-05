@@ -14,9 +14,19 @@ public class Programa
 		
 		
 		PartidaXadrez partidaXadrez = new PartidaXadrez();
-		UI.imprimeTabuleiro(partidaXadrez.getPesas());
+		while(true)
+		{
+		    UI.imprimeTabuleiro(partidaXadrez.getPesas());
+		    System.out.println();
+		    System.out.print("Origem: ");
+		    PosicaoXadrez origem = UI.lerPosicaoXadrez(scan);
+		    System.out.println();
+		    System.out.print("Destino: ");
+		    PosicaoXadrez destino = UI.lerPosicaoXadrez(scan);
+		    PesaXadrez capturada = partidaXadrez.executarMovimentoXadrez(origem, destino);
+	    }
 	
-		scan.close();
+		//scan.close();
 	}
 	
 }

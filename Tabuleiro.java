@@ -33,6 +33,18 @@ public class Tabuleiro
 		pesas[posicao.getLinha()][posicao.getColuna()] = pesa;
 		pesa.posicao = posicao;
 	}
+	
+	public Pesa removePesa(Posicao posicao)
+	{
+		if(!posicaoExiste(posicao))
+		{throw new ExcecaoTabuleiro("erro, posição não existe!");}
+		if(pesa(posicao) == null){return null;}
+		Pesa aux = pesa(posicao);
+		aux.posicao = null;
+		pesas[posicao.getLinha()][posicao.getColuna()] = null;
+		return aux;
+	}
+	
 	private boolean posicaoExiste(int linha, int coluna)
 	{return linha >= 0 && linha < linhas && coluna >= 0 && coluna < colunas;}
 	

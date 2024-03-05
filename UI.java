@@ -1,3 +1,6 @@
+
+import java.util.*;
+
 public class UI 
 {
 	// https://stackoverflow.com/questions/5762491/how-to-print-color-in-console-using-system-out-println
@@ -21,6 +24,18 @@ public class UI
 	public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
 	public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 	
+	public static PosicaoXadrez lerPosicaoXadrez(Scanner scan)
+	{
+		try
+		{
+			String s = scan.nextLine();
+			int linha = Integer.parseInt(s.substring(1));
+			char coluna = s.charAt(0);
+			return new PosicaoXadrez(linha, coluna);
+	    }
+	    catch(RuntimeException e){throw new InputMismatchException("erro, valores validos de 1a á 8h");}
+	}
+	
 	public static void imprimeTabuleiro(PesaXadrez[][] pesas)
 	{
 		for(int i = 0; i < pesas.length; i++)
@@ -41,7 +56,7 @@ public class UI
         }
         else {
             if (pesa.getCor() == Cor.branco) {
-                System.out.print(ANSI_WHITE + pesa + ANSI_RESET);
+                System.out.print(ANSI_CYAN + pesa + ANSI_RESET);
             }
             else {
                 System.out.print(ANSI_RED + pesa + ANSI_RESET);
