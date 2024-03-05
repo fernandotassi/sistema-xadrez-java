@@ -2,6 +2,7 @@
 import java.util.Locale;
 import java.util.Scanner;
 import java.util.Date;
+import java.util.*;
 
 public class Programa
 {
@@ -16,14 +17,20 @@ public class Programa
 		PartidaXadrez partidaXadrez = new PartidaXadrez();
 		while(true)
 		{
-		    UI.imprimeTabuleiro(partidaXadrez.getPesas());
-		    System.out.println();
-		    System.out.print("Origem: ");
-		    PosicaoXadrez origem = UI.lerPosicaoXadrez(scan);
-		    System.out.println();
-		    System.out.print("Destino: ");
-		    PosicaoXadrez destino = UI.lerPosicaoXadrez(scan);
-		    PesaXadrez capturada = partidaXadrez.executarMovimentoXadrez(origem, destino);
+			try
+			{
+				UI.limpaTela();
+				UI.imprimeTabuleiro(partidaXadrez.getPesas());
+				System.out.println();
+				System.out.print("Origem: ");
+				PosicaoXadrez origem = UI.lerPosicaoXadrez(scan);
+				System.out.println();
+				System.out.print("Destino: ");
+				PosicaoXadrez destino = UI.lerPosicaoXadrez(scan);
+				PesaXadrez capturada = partidaXadrez.executarMovimentoXadrez(origem, destino);
+		    }
+		    catch(ExcecaoXadrez e){System.out.println(e.getMessage()); scan.nextLine();}
+		    catch(InputMismatchException e){System.out.println(e.getMessage()); scan.nextLine();}
 	    }
 	
 		//scan.close();
