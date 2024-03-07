@@ -6,4 +6,10 @@ public abstract class PesaXadrez extends Pesa
 	{super(tabuleiro); this.cor = cor;}
 	
 	public Cor getCor(){return cor;}
+	
+	public boolean pesaAdversaria(Posicao posicao)
+	{
+		PesaXadrez p = (PesaXadrez)getTabuleiro().pesa(posicao);
+		return p != null && p.getCor() != cor;
+	}
 }

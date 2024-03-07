@@ -23,6 +23,7 @@ public class PartidaXadrez
 		Posicao origem = posicaoOrigem.paraPosicao();
 		Posicao destino = posicaoDestino.paraPosicao();
 		validaPosicaoOrigem(origem);
+		validaPosicaoDestino(origem, destino);
 		Pesa pegaPesa = fazMovimento(origem, destino);
 		return (PesaXadrez)pegaPesa;
 	}
@@ -41,6 +42,14 @@ public class PartidaXadrez
 		{throw new ExcecaoXadrez("erro, não existe peça na origem!");}
 		if(!tabuleiro.pesa(posicao).existeAlgumMovimentoPossivel())
 		{throw new ExcecaoXadrez("erro, não é possivel mover a peça!");}
+	}
+	
+	private void validaPosicaoDestino(Posicao origem, Posicao destino)
+	{
+		if(!tabuleiro.pesa(origem).movimentoPossivel(destino))
+		{
+			throw new ExcecaoXadrez("erro, esse movimento não é possível!");
+		}
 	}
 	
 	private void colocaNovaPesa(int linha, char coluna, PesaXadrez pesa)

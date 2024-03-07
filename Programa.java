@@ -28,7 +28,7 @@ public class Programa
 				System.out.print("Destino: ");
 				PosicaoXadrez destino = UI.lerPosicaoXadrez(scan);
 				PesaXadrez capturada = partidaXadrez.executarMovimentoXadrez(origem, destino);
-		    }
+		    }   		    
 		    catch(ExcecaoXadrez e){System.out.println(e.getMessage()); scan.nextLine();}
 		    catch(InputMismatchException e){System.out.println(e.getMessage()); scan.nextLine();}
 	    }
