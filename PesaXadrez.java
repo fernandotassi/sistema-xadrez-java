@@ -1,4 +1,4 @@
-public class PesaXadrez extends Pesa 
+public abstract class PesaXadrez extends Pesa 
 {
 	private Cor cor;
 	

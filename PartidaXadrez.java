@@ -39,6 +39,8 @@ public class PartidaXadrez
 	{
 		if(!tabuleiro.temUmaPesa(posicao))
 		{throw new ExcecaoXadrez("erro, não existe peça na origem!");}
+		if(!tabuleiro.pesa(posicao).existeAlgumMovimentoPossivel())
+		{throw new ExcecaoXadrez("erro, não é possivel mover a peça!");}
 	}
 	
 	private void colocaNovaPesa(int linha, char coluna, PesaXadrez pesa)
