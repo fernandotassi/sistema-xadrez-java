@@ -13,7 +13,7 @@ public class Torre extends PesaXadrez
 		boolean[][] mat = new boolean[getTabuleiro().getLinhas()][getTabuleiro().getColunas()];
 		Posicao p = new Posicao(0, 0);
 		
-		p.defineValores(posicao.getColuna() - 1, posicao.getColuna());
+		p.defineValores(posicao.getLinha() - 1, posicao.getColuna());
 		while(getTabuleiro().posicaoExiste(p) && !getTabuleiro().temUmaPesa(p))
 		{
 			mat[p.getLinha()][p.getColuna()] = true;
@@ -25,7 +25,7 @@ public class Torre extends PesaXadrez
 			mat[p.getLinha()][p.getColuna()] = true;
 		}
 		
-		p.defineValores(posicao.getColuna(), posicao.getColuna() - 1);
+		p.defineValores(posicao.getLinha(), posicao.getColuna() - 1);
 		while(getTabuleiro().posicaoExiste(p) && !getTabuleiro().temUmaPesa(p))
 		{
 			mat[p.getLinha()][p.getColuna()] = true;
@@ -37,7 +37,7 @@ public class Torre extends PesaXadrez
 			mat[p.getLinha()][p.getColuna()] = true;
 		}
 		
-		p.defineValores(posicao.getColuna(), posicao.getColuna() + 1);
+		p.defineValores(posicao.getLinha(), posicao.getColuna() + 1);
 		while(getTabuleiro().posicaoExiste(p) && !getTabuleiro().temUmaPesa(p))
 		{
 			mat[p.getLinha()][p.getColuna()] = true;
@@ -49,7 +49,7 @@ public class Torre extends PesaXadrez
 			mat[p.getLinha()][p.getColuna()] = true;
 		}
 		
-		p.defineValores(posicao.getColuna() + 1, posicao.getColuna());
+		p.defineValores(posicao.getLinha() + 1, posicao.getColuna());
 		while(getTabuleiro().posicaoExiste(p) && !getTabuleiro().temUmaPesa(p))
 		{
 			mat[p.getLinha()][p.getColuna()] = true;

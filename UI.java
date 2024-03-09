@@ -49,16 +49,34 @@ public class UI
 			System.out.print((8 - i) + " ");
 			for(int j = 0; j < pesas.length; j++)
 			{
-				imprimePesa(pesas[i][j]);
+				imprimePesa(pesas[i][j], false);
 			}	
 			System.out.println();	
 		}
 		System.out.println("  a b c d e f g h");
 	 }
-	 private static void imprimePesa(PesaXadrez pesa)
+	 
+	 public static void imprimeTabuleiro(PesaXadrez[][] pesas, boolean[][] possiveisMovimentos)
+	{
+		for(int i = 0; i < pesas.length; i++)
+		{
+			System.out.print((8 - i) + " ");
+			for(int j = 0; j < pesas.length; j++)
+			{
+				imprimePesa(pesas[i][j], possiveisMovimentos[i][j]);
+			}	
+			System.out.println();	
+		}
+		System.out.println("  a b c d e f g h");
+	 }
+	 
+	 private static void imprimePesa(PesaXadrez pesa, boolean atras)
 	 {
+		if(atras)
+		{System.out.print(ANSI_BLUE_BACKGROUND);}
+		
 		if (pesa == null) {
-            System.out.print("-");
+            System.out.print("-" + ANSI_RESET);
         }
         else {
             if (pesa.getCor() == Cor.branco) {

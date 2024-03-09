@@ -18,6 +18,13 @@ public class PartidaXadrez
 		return mat;	
 	}
 	
+	public boolean[][] possiveisMovimentos(PosicaoXadrez posicaoOrigem)
+	{
+		Posicao posicao = posicaoOrigem.paraPosicao();
+		validaPosicaoOrigem(posicao);
+		return tabuleiro.pesa(posicao).movimentosPossiveis();
+	}
+	
 	public PesaXadrez executarMovimentoXadrez(PosicaoXadrez posicaoOrigem, PosicaoXadrez posicaoDestino)
 	{
 		Posicao origem = posicaoOrigem.paraPosicao();
