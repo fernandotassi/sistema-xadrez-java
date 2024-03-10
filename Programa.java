@@ -13,7 +13,6 @@ public class Programa
 		Date d = new Date();
 		System.out.println(d);
 		
-		
 		PartidaXadrez partidaXadrez = new PartidaXadrez();
 		while(true)
 		{
