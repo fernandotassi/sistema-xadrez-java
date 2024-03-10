@@ -42,6 +42,15 @@ public class UI
 	    catch(RuntimeException e){throw new InputMismatchException("erro, valores validos de 1a á 8h");}
 	}
 	
+	public static void imprimePartida(PartidaXadrez partidaXadrez)
+	{
+		imprimeTabuleiro(partidaXadrez.getPesas());
+		System.out.println();
+		System.out.println("turno: " + partidaXadrez.getTurno());
+		System.out.println("esperando jogador!: " + partidaXadrez.getJogadoAtual());
+		
+	}
+	
 	public static void imprimeTabuleiro(PesaXadrez[][] pesas)
 	{
 		for(int i = 0; i < pesas.length; i++)

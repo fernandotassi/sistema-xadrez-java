@@ -1,9 +1,19 @@
 public class PartidaXadrez 
 {
+	private int turno;
+	private Cor jogadorAtual;
 	private Tabuleiro tabuleiro;
 	
 	public PartidaXadrez()
-	{tabuleiro = new Tabuleiro(8, 8); pesaInicial();}
+	{
+		tabuleiro = new Tabuleiro(8, 8); 
+		turno = 1;
+		jogadorAtual = Cor.branco;
+		pesaInicial();
+	}
+	
+	public int getTurno(){return turno;}
+	public Cor getJogadoAtual(){return jogadorAtual;}
 	
 	public PesaXadrez[][] getPesas()
 	{
@@ -32,6 +42,7 @@ public class PartidaXadrez
 		validaPosicaoOrigem(origem);
 		validaPosicaoDestino(origem, destino);
 		Pesa pegaPesa = fazMovimento(origem, destino);
+		proximoTurno();
 		return (PesaXadrez)pegaPesa;
 	}
 	
@@ -47,6 +58,8 @@ public class PartidaXadrez
 	{
 		if(!tabuleiro.temUmaPesa(posicao))
 		{throw new ExcecaoXadrez("erro, não existe peça na origem!");}
+		if(jogadorAtual != ((PesaXadrez)tabuleiro.pesa(posicao)).getCor())
+		{throw new ExcecaoXadrez("erro, a peça não é tua!");}
 		if(!tabuleiro.pesa(posicao).existeAlgumMovimentoPossivel())
 		{throw new ExcecaoXadrez("erro, não é possivel mover a peça!");}
 	}
@@ -57,6 +70,12 @@ public class PartidaXadrez
 		{
 			throw new ExcecaoXadrez("erro, esse movimento não é possível!");
 		}
+	}
+	
+	private void proximoTurno()
+	{
+		turno++;
+		jogadorAtual = (jogadorAtual == Cor.branco) ? Cor.preto : Cor.branco;
 	}
 	
 	private void colocaNovaPesa(int linha, char coluna, PesaXadrez pesa)
