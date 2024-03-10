@@ -1,5 +1,7 @@
 
 import java.util.*;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class UI 
 {
@@ -42,9 +44,11 @@ public class UI
 	    catch(RuntimeException e){throw new InputMismatchException("erro, valores validos de 1a á 8h");}
 	}
 	
-	public static void imprimePartida(PartidaXadrez partidaXadrez)
+	public static void imprimePartida(PartidaXadrez partidaXadrez, List<PesaXadrez> capturada)
 	{
 		imprimeTabuleiro(partidaXadrez.getPesas());
+		System.out.println();
+		imprimePesaCapturada(capturada);
 		System.out.println();
 		System.out.println("turno: " + partidaXadrez.getTurno());
 		System.out.println("esperando jogador!: " + partidaXadrez.getJogadoAtual());
@@ -97,4 +101,20 @@ public class UI
         }
         System.out.print(" ");
 	 }
+	 
+	 private static void imprimePesaCapturada(List<PesaXadrez> capturada)
+	 {
+		 List<PesaXadrez> branca = capturada.stream().filter(x -> x.getCor() == Cor.branco).collect(Collectors.toList());
+		 List<PesaXadrez> preta = capturada.stream().filter(x -> x.getCor() == Cor.preto).collect(Collectors.toList());
+		 System.out.println("peças capturadas: ");
+		 System.out.print("brancas: ");
+		 System.out.print(ANSI_CYAN);
+		 System.out.println(Arrays.toString(branca.toArray()));
+		 System.out.print(ANSI_RESET);
+		 System.out.print("pretas: ");
+		 System.out.print(ANSI_RED);
+		 System.out.println(Arrays.toString(preta.toArray()));
+		 System.out.print(ANSI_RESET);
+	 }
+	 
 }

@@ -1,8 +1,14 @@
+
+import java.util.*;
+
 public class PartidaXadrez 
 {
 	private int turno;
 	private Cor jogadorAtual;
 	private Tabuleiro tabuleiro;
+	
+	private List<Pesa> pesasNoTabuleiro = new ArrayList<>();
+	private List<Pesa> pesasCapturadas = new ArrayList<>();
 	
 	public PartidaXadrez()
 	{
@@ -51,6 +57,11 @@ public class PartidaXadrez
 		Pesa p = tabuleiro.removePesa(origem);
 		Pesa pesaCapturada = tabuleiro.removePesa(destino);
 		tabuleiro.colocaPesa(p, destino);
+		if(pesaCapturada != null)
+		{
+			pesasNoTabuleiro.remove(pesaCapturada);
+			pesasCapturadas.add(pesaCapturada);
+		}
 		return pesaCapturada;
 	}
 	
@@ -79,7 +90,10 @@ public class PartidaXadrez
 	}
 	
 	private void colocaNovaPesa(int linha, char coluna, PesaXadrez pesa)
-	{tabuleiro.colocaPesa(pesa, new PosicaoXadrez(linha, coluna).paraPosicao());}
+	{
+		tabuleiro.colocaPesa(pesa, new PosicaoXadrez(linha, coluna).paraPosicao());
+		pesasNoTabuleiro.add(pesa);
+	}
 	
 	public void pesaInicial()
 	{

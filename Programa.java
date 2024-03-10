@@ -14,12 +14,14 @@ public class Programa
 		System.out.println(d);
 		
 		PartidaXadrez partidaXadrez = new PartidaXadrez();
+		List<PesaXadrez> capturada = new ArrayList<>();
+		
 		while(true)
 		{
 			try
 			{
 				UI.limpaTela();
-				UI.imprimePartida(partidaXadrez);
+				UI.imprimePartida(partidaXadrez, capturada);
 				System.out.println();
 				System.out.print("Origem: ");
 				PosicaoXadrez origem = UI.lerPosicaoXadrez(scan);
@@ -29,7 +31,9 @@ public class Programa
 				System.out.println();
 				System.out.print("Destino: ");
 				PosicaoXadrez destino = UI.lerPosicaoXadrez(scan);
-				PesaXadrez capturada = partidaXadrez.executarMovimentoXadrez(origem, destino);
+				PesaXadrez pesaCapturada = partidaXadrez.executarMovimentoXadrez(origem, destino);
+				if(pesaCapturada != null)
+				{capturada.add(pesaCapturada);}
 		    }   		    
 		    catch(ExcecaoXadrez e){System.out.println(e.getMessage()); scan.nextLine();}
 		    catch(InputMismatchException e){System.out.println(e.getMessage()); scan.nextLine();}
